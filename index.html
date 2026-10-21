@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Result Upload Site</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <h1>Student Result Upload Site</h1>
+      <p class="sub">Upload student results and let students check their own.</p>
+    </header>
+
+    <section class="card" aria-labelledby="uploadTitle">
+      <h2 id="uploadTitle">Upload a result</h2>
+      <form id="resultForm" novalidate>
+        <div class="field"><label for="name">Student name</label>
+          <input id="name" type="text" autocomplete="off" /><p class="error" id="nameError"></p></div>
+        <div class="field"><label for="matric">Matric number</label>
+          <input id="matric" type="text" placeholder="23/095244109" autocomplete="off" /><p class="error" id="matricError"></p></div>
+        <div class="field"><label for="course">Course code</label>
+          <input id="course" type="text" placeholder="CSC301" autocomplete="off" /><p class="error" id="courseError"></p></div>
+        <div class="field"><label for="score">Score (0 to 100)</label>
+          <input id="score" type="text" inputmode="numeric" autocomplete="off" /><p class="error" id="scoreError"></p></div>
+        <button type="submit" class="primary">Upload result</button>
+      </form>
+      <p id="status" class="status" aria-live="polite"></p>
+    </section>
+
+    <section class="card" aria-labelledby="lookupTitle">
+      <h2 id="lookupTitle">Check a result</h2>
+      <div class="row">
+        <input id="lookupMatric" type="text" placeholder="Enter matric number" aria-label="Matric number to look up" />
+        <button type="button" id="lookupBtn" class="primary">Check</button>
+        <button type="button" id="showAllBtn">Show all</button>
+      </div>
+      <p id="summary" class="status" aria-live="polite"></p>
+    </section>
+
+    <section class="card" aria-labelledby="listTitle">
+      <div class="row between">
+        <h2 id="listTitle">Results <span id="count" class="pill">0</span></h2>
+        <button type="button" id="clearBtn" class="danger">Clear all</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Name</th><th>Matric</th><th>Course</th><th>Score</th><th>Grade</th><th></th></tr></thead>
+          <tbody id="resultBody"></tbody>
+        </table>
+      </div>
+      <p id="empty" class="empty">No results to show.</p>
+    </section>
+  </main>
+  <script src="logic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
